@@ -9,10 +9,10 @@ class ContactsController < ApplicationController
     if @contact.save
       ContactMailer.contact_email(@contact.name, @contact.email, @contact.comments).deliver
       flash[:success] = "Message sent."
-      redirect_to new_contact_path
+      redirect_to contact_us_path
     else
       flash[:danger] = @contact.errors.full_messages.join(", ")
-      redirect_to new_contact_path
+      redirect_to contact_us_path
     end
   end
   
